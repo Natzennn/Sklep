@@ -20,21 +20,81 @@
     }
 
     header {
-      background: linear-gradient(135deg, #0f766e, #0ea5e9);
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,0.22), transparent 24%),
+        radial-gradient(circle at 85% 30%, rgba(255,255,255,0.16), transparent 26%),
+        linear-gradient(135deg, #0f766e, #0ea5e9);
       color: white;
-      padding: 70px 20px;
+      padding: 90px 20px;
       text-align: center;
     }
 
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(45deg, rgba(255,255,255,0.08) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(255,255,255,0.08) 25%, transparent 25%);
+      background-size: 70px 70px;
+      opacity: 0.35;
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 950px;
+      margin: 0 auto;
+      z-index: 1;
+    }
+
+    .logo-mark {
+      width: 88px;
+      height: 88px;
+      margin: 0 auto 22px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.18);
+      backdrop-filter: blur(10px);
+    }
+
+    .logo-mark svg {
+      width: 54px;
+      height: 54px;
+      fill: white;
+    }
+
     header h1 {
-      font-size: 42px;
+      font-size: 48px;
       margin-bottom: 12px;
+      letter-spacing: -1px;
     }
 
     header p {
       font-size: 20px;
-      max-width: 700px;
+      max-width: 760px;
       margin: 0 auto 28px;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    .badge {
+      background: rgba(255,255,255,0.18);
+      color: white;
+      padding: 9px 14px;
+      border-radius: 999px;
+      font-weight: bold;
+      backdrop-filter: blur(8px);
     }
 
     .btn {
@@ -83,6 +143,14 @@
       text-align: center;
     }
 
+    .section-subtitle {
+      text-align: center;
+      max-width: 720px;
+      margin: -10px auto 32px;
+      color: #4b5563;
+      font-size: 18px;
+    }
+
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -92,8 +160,27 @@
     .card {
       background: white;
       padding: 24px;
+      border-radius: 18px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      border: 1px solid rgba(15,118,110,0.08);
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 34px rgba(0,0,0,0.12);
+    }
+
+    .icon {
+      width: 52px;
+      height: 52px;
       border-radius: 16px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+      background: linear-gradient(135deg, #ccfbf1, #e0f2fe);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      font-size: 27px;
     }
 
     .card h3 {
@@ -103,19 +190,43 @@
 
     .about {
       background: white;
-      border-radius: 20px;
-      padding: 34px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+      border-radius: 22px;
+      padding: 36px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
       font-size: 18px;
+      border-left: 7px solid #0f766e;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .stat {
+      background: linear-gradient(135deg, #ecfeff, #f0fdfa);
+      border-radius: 18px;
+      padding: 20px;
+      text-align: center;
+      border: 1px solid rgba(15,118,110,0.12);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 26px;
+      color: #0f766e;
     }
 
     .contact-box {
-      background: #0f766e;
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.18), transparent 30%),
+        linear-gradient(135deg, #0f766e, #0f172a);
       color: white;
-      border-radius: 20px;
-      padding: 34px;
+      border-radius: 22px;
+      padding: 36px;
       text-align: center;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.16);
     }
 
     .contact-box a {
@@ -123,6 +234,42 @@
       font-weight: bold;
       text-decoration: none;
     }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .visual-card {
+      min-height: 180px;
+      border-radius: 22px;
+      padding: 24px;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.14);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .visual-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 80% 15%, rgba(255,255,255,0.32), transparent 28%);
+    }
+
+    .visual-card h3,
+    .visual-card p {
+      position: relative;
+      z-index: 1;
+    }
+
+    .visual-1 { background: linear-gradient(135deg, #0f766e, #14b8a6); }
+    .visual-2 { background: linear-gradient(135deg, #0369a1, #38bdf8); }
+    .visual-3 { background: linear-gradient(135deg, #1f2937, #64748b); }
 
     footer {
       background: #111827;
@@ -133,7 +280,7 @@
 
     @media (max-width: 600px) {
       header h1 {
-        font-size: 32px;
+        font-size: 34px;
       }
 
       header p {
@@ -144,14 +291,30 @@
         display: inline-block;
         margin: 6px 8px;
       }
+
+      .btn {
+        margin-top: 8px;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Hydro-Met Mszczonów</h1>
-    <p>Sklep hydrauliczny w Mszczonowie. Artykuły instalacyjne, hydrauliczne i fachowe doradztwo dla klientów indywidualnych oraz firm.</p>
-    <a class="btn" href="tel:453203061">Zadzwoń: 453 203 061</a>
+    <div class="hero-content">
+      <div class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <path d="M42 5c-6 8-10 15-10 22a10 10 0 0 0 20 0C52 20 48 13 42 5Zm-20 8H10a4 4 0 0 0-4 4v10h12v10H6v10a4 4 0 0 0 4 4h12V13Zm28 30H30v8h20a8 8 0 0 0 0-16h-7v8h7Z"/>
+        </svg>
+      </div>
+      <h1>Hydro-Met Mszczonów</h1>
+      <p>Sklep hydrauliczny w Mszczonowie. Artykuły instalacyjne, hydrauliczne i fachowe doradztwo dla klientów indywidualnych oraz firm.</p>
+      <div class="hero-badges">
+        <span class="badge">⭐ Ocena 5.0 w Google</span>
+        <span class="badge">📍 Sienkiewicza 27b</span>
+        <span class="badge">🔧 Usługi montażu</span>
+      </div>
+      <a class="btn" href="tel:453203061">Zadzwoń: 453 203 061</a>
+    </div>
   </header>
 
   <nav>
@@ -162,34 +325,61 @@
 
   <section id="oferta">
     <h2>Nasza oferta</h2>
+    <p class="section-subtitle">Najpotrzebniejsze produkty hydrauliczne i instalacyjne w jednym miejscu — z pomocą w doborze odpowiednich części.</p>
     <div class="cards">
       <div class="card">
+        <div class="icon">🔩</div>
         <h3>Rury i złączki</h3>
         <p>Elementy instalacji wodnych, grzewczych i sanitarnych.</p>
       </div>
       <div class="card">
+        <div class="icon">🚰</div>
         <h3>Zawory</h3>
         <p>Zawory kulowe, bezpieczeństwa, zwrotne oraz akcesoria montażowe.</p>
       </div>
       <div class="card">
+        <div class="icon">💧</div>
         <h3>Pompy</h3>
         <p>Pompy obiegowe, hydroforowe i rozwiązania do instalacji domowych.</p>
       </div>
       <div class="card">
+        <div class="icon">🔥</div>
         <h3>Grzejniki i ogrzewanie</h3>
         <p>Produkty do instalacji centralnego ogrzewania i modernizacji systemów.</p>
       </div>
       <div class="card">
+        <div class="icon">🛁</div>
         <h3>Armatura</h3>
         <p>Baterie, syfony, wężyki, uszczelki i części zamienne.</p>
       </div>
       <div class="card">
+        <div class="icon">🧰</div>
         <h3>Doradztwo</h3>
         <p>Pomagamy dobrać odpowiednie części do naprawy lub montażu.</p>
       </div>
       <div class="card">
+        <div class="icon">🔧</div>
         <h3>Usługi montażu</h3>
         <p>Oferujemy pomoc przy montażu i instalacjach hydraulicznych.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Profesjonalne wyposażenie instalacji</h2>
+    <p class="section-subtitle">Produkty do napraw, remontów i nowych instalacji — dla domu, firmy i instalatorów.</p>
+    <div class="gallery">
+      <div class="visual-card visual-1">
+        <h3>Instalacje wodne</h3>
+        <p>Rury, złączki, zawory i akcesoria montażowe.</p>
+      </div>
+      <div class="visual-card visual-2">
+        <h3>Ogrzewanie</h3>
+        <p>Elementy instalacji CO, pompy i grzejniki.</p>
+      </div>
+      <div class="visual-card visual-3">
+        <h3>Szybka pomoc</h3>
+        <p>Doradzimy, co kupić do naprawy lub montażu.</p>
       </div>
     </div>
   </section>
@@ -202,6 +392,11 @@
       <p><strong>Ocena 5.0 w Google ⭐</strong> — zadowoleni klienci potwierdzają jakość naszej obsługi.</p>
       <br />
       <p>Obsługujemy klientów indywidualnych, hydraulików, instalatorów oraz firmy. Jeśli nie wiesz, jakiej części potrzebujesz — zadzwoń lub odwiedź nas, a pomożemy dobrać właściwe rozwiązanie.</p>
+    <div class="stats">
+        <div class="stat"><strong>5.0 ⭐</strong><span>ocena w Google</span></div>
+        <div class="stat"><strong>Mszczonów</strong><span>lokalny sklep</span></div>
+        <div class="stat"><strong>453 203 061</strong><span>szybki kontakt</span></div>
+      </div>
     </div>
   </section>
 
